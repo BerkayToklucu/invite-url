@@ -10,7 +10,7 @@ At the core of this project is a robust Python backend that interacts seamlessly
 
 
 
-#### *This is a project by [Berkay Toklucu](https://github.com/BerkayToklucu).*
+#### *This is a project by [Berkay Toklucu](https://github.com/BerkayToklucu) & [Enes](https://github.com/ens032).*
 
   
 ###
