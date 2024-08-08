@@ -13,13 +13,12 @@ function checkURL() {
         const result = document.createElement("p");
         result.textContent = data.result;
 
-        // Renklendirme için değişiklikler
         if (data.result.includes("zaten başka bir sunucu tarafından kullanılıyor. Alternatif:")) {
-            result.style.color = "yellow"; // Alternatif önerisi
+            result.classList.add("error");
         } else if (data.result.includes("zaten başka bir sunucu tarafından kullanılıyor, ancak uygun bir alternatif bulunamadı.")) {
-            result.style.color = "red"; // Sunucu adı kullanılıyor, alternatif yok
+            result.classList.add("error"); 
         } else if (data.result.includes("kullanılabilir.")) {
-            result.style.color = "green"; // Kullanılabilir
+            result.classList.add("success");
         }
 
         output.appendChild(result);

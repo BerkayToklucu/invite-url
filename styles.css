@@ -121,12 +121,17 @@ input {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-.error {
+.output p { 
+    color: #f4f4f4; 
+}
+.output p.warning { 
     color: red;
 }
-.warning {
-    color: yellow;
+
+.output p.error { 
+    color: red;
 }
-.success {
+
+.output p.success {
     color: green;
 }
