@@ -54,22 +54,19 @@ def check_invite_availability():
         response = requests.get(url, headers=headers)
 
         if response.status_code == 404:
-            result = f'<span style="color: green;">https://discord.gg/{keyword} kullanılabilir.</span>'
-            return render_template_string(result)
+            return jsonify({'result': f"https://discord.gg/{keyword} kullanılabilir."})
         elif response.status_code == 200:
+            # Orijinal anahtar kelime kullanılmıyor, alternatifler öneriliyor
             similar_keywords = generate_similar_keywords(keyword)
             available_invite = find_available_invite(similar_keywords)
             if available_invite:
-                result = f'<span style="color: red;">https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor.</span> Alternatif: {available_invite}'
+                return jsonify({'result': f"https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor. Alternatif: {available_invite}"})
             else:
-                result = f'<span style="color: red;">https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor, ancak uygun bir alternatif bulunamadı.</span>'
-            return render_template_string(result)
+                return jsonify({'result': f"https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor, ancak uygun bir alternatif bulunamadı."})
         else:
-            result = f'<span style="color: red;">Bir hata oluştu: {response.status_code} - {response.text}</span>'
-            return render_template_string(result)
+            return jsonify({'result': f"Bir hata oluştu: {response.status_code} - {response.text}"})
     except Exception as e:
-        result = f'<span style="color: red;">Bir hata oluştu: {str(e)}</span>'
-        return render_template_string(result), 500
+        return jsonify({'result': f"Bir hata oluştu: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
