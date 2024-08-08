@@ -60,9 +60,9 @@ def check_invite_availability():
             similar_keywords = generate_similar_keywords(keyword)
             available_invite = find_available_invite(similar_keywords)
             if available_invite:
-               return jsonify({'result': f"<span style='color:red;'>https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor. Alternatif: {available_invite}</span>"})
+               return jsonify({'result': f"<span> <spanstyle='color:red;'>https://discord.gg/%7Bkeyword%7D zaten başka bir sunucu tarafından kullanılıyor. Alternatif: {available_invite}</span>"})
             else:
-               return jsonify({'result': f"<span style='color:red;'>https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor, ancak uygun bir alternatif bulunamadı.</span>"})
+               return jsonify({'result': f"<span> <spanstyle='color:red;'>https://discord.gg/%7Bkeyword%7D zaten başka bir sunucu tarafından kullanılıyor. Alternatif: {available_invite}</span>"})
         else:
             return jsonify({'result': f"Bir hata oluştu: {response.status_code} - {response.text}"})
     except Exception as e:
