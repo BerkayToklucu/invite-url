@@ -4,7 +4,6 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# Çevresel değişkeni kullanarak bot tokenini al
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 @app.route('/api/check_invite', methods=['POST'])
@@ -24,7 +23,7 @@ def check_invite_availability():
         response = requests.get(url, headers=headers)
 
         if response.status_code == 404:
-            return jsonify({'result': f"https://discord.gg/{keyword} kullanılabilir!"})
+            return jsonify({'result': f"https://discord.gg/{keyword} kullanılabilir."})
         elif response.status_code == 200:
             return jsonify({'result': f"https://discord.gg/{keyword} zaten başka bir sunucu tarafından kullanılıyor."})
         else:
