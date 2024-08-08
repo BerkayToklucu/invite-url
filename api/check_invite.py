@@ -8,7 +8,7 @@ app = Flask(__name__)
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 def generate_similar_keywords(keyword, num=5):
-    # Generate similar keywords by adding random numbers or characters
+    # Benzer anahtar kelimeler oluşturur: orijinal anahtar kelimenin sonuna rastgele bir ek ekler
     similar_keywords = []
     chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
     for _ in range(num):
@@ -46,6 +46,7 @@ def check_invite_availability():
         if response.status_code == 404:
             return jsonify({'result': f"https://discord.gg/{keyword} kullanılabilir."})
         elif response.status_code == 200:
+            # Orijinal anahtar kelime kullanılmıyor, alternatifler öneriliyor
             similar_keywords = generate_similar_keywords(keyword)
             available_invite = find_available_invite(similar_keywords)
             if available_invite:
