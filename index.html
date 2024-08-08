@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord URL Kontrol - Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-wrapper">
+        <div class="terminal-header">
+            <div draggable="false" class="buttons">
+                <span class="button red"></span>
+                <span class="button yellow"></span>
+                <span class="button green"></span>
+            </div>
+        </div>
+        <div class="terminal">
+            <div class="output" id="output">
+                <p>Özelleştirilmiş ve kullanılabilir Discord davet linklerini aratmak veya alternatifleri yaratmak için bir davet uzantısı girin.</p>
+            </div>
+            <div class="input-line">
+                <span class="prompt">$</span>
+                <input type="text" id="searchInput" autofocus onkeydown="if(event.key === 'Enter') checkURL()">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkURL() {
+            const keyword = document.getElementById("searchInput").value;
+            fetch('/api/check_invite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `keyword=${keyword}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                const output = document.getElementById("output");
+                const result = document.createElement("p");
+                result.textContent = data.result;
+                output.appendChild(result);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+    
+</body>
+</html>
