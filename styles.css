@@ -88,3 +88,36 @@ input {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
 }
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #b3b3b3;
+}
+::-webkit-scrollbar-track {
+  background: #b5b5b5;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #bdbdbd;
+}
+::-webkit-scrollbar-track:active {
+  background: #bababa;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
