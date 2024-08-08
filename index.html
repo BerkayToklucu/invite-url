@@ -32,9 +32,9 @@
             fetch('/api/check_invite', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
-                body: `keyword=${keyword}`
+                body: JSON.stringify({ keyword: keyword })
             })
             .then(response => response.json())
             .then(data => {
@@ -46,6 +46,5 @@
             .catch(error => console.error('Error:', error));
         }
     </script>
-    
 </body>
 </html>
