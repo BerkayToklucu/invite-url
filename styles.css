@@ -121,3 +121,6 @@ input {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+.red-text {
+    color: red;
+}
