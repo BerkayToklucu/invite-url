@@ -1,5 +1,6 @@
 import os
 import requests
+import random
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -7,6 +8,7 @@ app = Flask(__name__)
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 def generate_similar_keywords(keyword):
+    # List of base keywords to choose from
     base_keywords = [
         "hub", "center", "tutorial", "zone", "world", "community", "space", "group", "network",
         "info", "guide", "help", "base", "portal", "room", "center", "base", "place", "network",
@@ -16,7 +18,11 @@ def generate_similar_keywords(keyword):
         "domain", "field", "hub", "square", "spot", "corner", "base", "nation", "country", "city"
     ]
     
-    similar_keywords = [f"{keyword}{base}" for base in base_keywords]
+    # Select a random base keyword
+    random_base = random.choice(base_keywords)
+    
+    # Generate similar keywords by appending the random base keyword to the original keyword
+    similar_keywords = [f"{keyword}{random_base}"]
     return similar_keywords
 
 
