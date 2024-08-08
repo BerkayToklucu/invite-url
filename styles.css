@@ -1,0 +1,91 @@
+/* styles.css */
+body {
+    background-color: #1e1e1e;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-wrapper {
+    width: 80%;
+    max-width: 900px;
+    height: 80%;
+    background: rgba(36, 36, 36, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background: #2e2e2e;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
+}
+
+.button.yellow {
+    background: #ffbd2e;
+}
+
+.button.green {
+    background: #27c93f;
+}
+
+.terminal {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #bfbfbf;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #f4f4f4;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #364da1;
+}
+
+input {
+    background-color: transparent;
+    color: #4f66b9;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
