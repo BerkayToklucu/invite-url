@@ -1,20 +1,24 @@
 import os
 import requests
-import random
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-def generate_similar_keywords(keyword, num=5):
-    # Benzer anahtar kelimeler oluşturur: orijinal anahtar kelimenin sonuna rastgele bir ek ekler
-    similar_keywords = []
-    chars = 'abcdefghijklmnopqrstuvwxyz0123456789'
-    for _ in range(num):
-        suffix = ''.join(random.choice(chars) for _ in range(4))
-        similar_keywords.append(f"{keyword}-{suffix}")
+def generate_similar_keywords(keyword):
+    base_keywords = [
+        "hub", "center", "tutorial", "zone", "world", "community", "space", "group", "network",
+        "info", "guide", "help", "base", "portal", "room", "center", "base", "place", "network",
+        "club", "team", "crew", "guild", "society", "association", "forum", "link", "event", "meetup",
+        "studio", "lab", "project", "service", "support", "chat", "connect", "resource", "info", "node",
+        "line", "station", "showcase", "exchange", "market", "zone", "site", "land", "area", "region",
+        "domain", "field", "hub", "square", "spot", "corner", "base", "nation", "country", "city"
+    ]
+    
+    similar_keywords = [f"{keyword}{base}" for base in base_keywords]
     return similar_keywords
+
 
 def find_available_invite(keywords):
     for keyword in keywords:
