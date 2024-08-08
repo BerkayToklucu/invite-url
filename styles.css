@@ -1,5 +1,5 @@
 body {
-    background-color: #1e1e1e;
+    background-color: #525d8d;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     height: 100vh;
@@ -12,9 +12,9 @@ body {
     width: 80%;
     max-width: 900px;
     height: 80%;
-    background: rgba(36, 36, 36, 0.95);
+    background: rgba(102, 102, 102, 0.95);
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(70, 70, 70, 0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ body {
 }
 
 .terminal {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.677);
     color: #bfbfbf;
     padding: 20px;
     flex-grow: 1;
