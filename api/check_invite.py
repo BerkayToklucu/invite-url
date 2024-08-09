@@ -18,10 +18,8 @@ def generate_similar_keywords(keyword):
         "domain", "field", "hub", "square", "spot", "corner", "base", "nation", "country", "city"
     ]
     
-    # Select a random base keyword
     random_base = random.choice(base_keywords)
     
-    # Generate similar keywords by appending the random base keyword to the original keyword
     similar_keywords = [f"{keyword}{random_base}"]
     return similar_keywords
 
@@ -56,7 +54,6 @@ def check_invite_availability():
         if response.status_code == 404:
             return jsonify({'result': f"https://discord.gg/{keyword} kullanılabilir."})
         elif response.status_code == 200:
-            # Orijinal anahtar kelime kullanılmıyor, alternatifler öneriliyor
             similar_keywords = generate_similar_keywords(keyword)
             available_invite = find_available_invite(similar_keywords)
             if available_invite:
